@@ -1,0 +1,30 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDBDownloader", "PDBDownloader\PDBDownloader.csproj", "{818201D4-D003-4F3C-9164-F28A9526EE9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PE2PDBUrl", "PE2PDBUrl\PE2PDBUrl.csproj", "{BE72E52F-0475-4AD5-AF00-EFAFDD905D2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{818201D4-D003-4F3C-9164-F28A9526EE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{818201D4-D003-4F3C-9164-F28A9526EE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{818201D4-D003-4F3C-9164-F28A9526EE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{818201D4-D003-4F3C-9164-F28A9526EE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE72E52F-0475-4AD5-AF00-EFAFDD905D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE72E52F-0475-4AD5-AF00-EFAFDD905D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE72E52F-0475-4AD5-AF00-EFAFDD905D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE72E52F-0475-4AD5-AF00-EFAFDD905D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AA6CFB0-51AB-4FFC-B434-F18DC17121A6}
+	EndGlobalSection
+EndGlobal
