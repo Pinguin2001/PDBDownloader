@@ -4,14 +4,15 @@ using System.Reflection;
 
 if (args.Length != 2)
 {
-    Console.WriteLine($"PDBDownloader {Assembly.GetExecutingAssembly().GetName().Version}");
-    Console.WriteLine("Downloads PDB files from msdl.microsoft.com");
-    Console.WriteLine("\nUsage: <PE File> <PDB output file>");
+    Console.WriteLine($"PDBDownloader {Assembly.GetExecutingAssembly().GetName().Version} - msdl.microsoft.com pdb downloader");
+    Console.WriteLine("\nUsage: <PE File> <PDB output path>");
     return;
 }
 
 string pefilepath = args[0];
+string pefilename = Path.GetFileNameWithoutExtension(pefilepath);
 string pdbfilepath = args[1];
+
 if (!File.Exists(pefilepath))
 {
     Console.WriteLine($"{pefilepath} does not exist");
@@ -28,7 +29,9 @@ if (string.IsNullOrEmpty(peDebugInformation.PDBUrl))
 
 Console.WriteLine($"Downloading pdb {peDebugInformation.PDBUrl}...");
 byte[] pdb = await PDBDownloadHelper.DownloadPDBAsync(peDebugInformation.PDBUrl);
-var pdbfile = File.Create(pdbfilepath);
+
+FileStream pdbfile = PDBFileHelper.CreatePDBFile(pdbfilepath, pefilename);
+
 await pdbfile.WriteAsync(pdb);
 
 Console.WriteLine($"PDB saved to {pdbfilepath}");
