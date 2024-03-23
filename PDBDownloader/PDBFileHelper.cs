@@ -5,15 +5,22 @@ public static class PDBFileHelper
     public static FileStream CreatePDBFile(string path, string filename)
     {
         FileStream fileStream;
-        FileAttributes attributes = File.GetAttributes(path);
-
-        if ((attributes & FileAttributes.Directory) == FileAttributes.Directory)
+        if (!File.Exists(path))
         {
-            fileStream = File.Create(path + filename + ".pdb");
+            fileStream = File.Create(path + "\\" + filename + ".pdb");
         }
         else
         {
-            fileStream = File.Create(path);
+            FileAttributes attributes = File.GetAttributes(path);
+            if ((attributes & FileAttributes.Directory) == FileAttributes.Directory)
+            {
+                fileStream = File.Create(path + "\\" + filename + ".pdb");
+            }
+            else
+            {
+                File.Delete(path);
+                fileStream = File.Create(path + "\\" + filename + ".pdb");
+            }
         }
         return fileStream;
     }
