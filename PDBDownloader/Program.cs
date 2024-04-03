@@ -1,6 +1,5 @@
 ﻿using PDBDownloader;
 using PE2PDBUrl;
-using System.IO;
 using System.Reflection;
 
 if (args.Length != 2)
@@ -30,6 +29,11 @@ if (string.IsNullOrEmpty(peDebugInformation.PDBUrl))
 
 Console.WriteLine($"Downloading {pefilename}.pdb...");
 byte[] pdb = await PDBDownloadHelper.DownloadPDBAsync(peDebugInformation.PDBUrl);
+if (pdb == null)
+{
+    Console.WriteLine($"An error occured while trying to download {pefilename}.pdb");
+    return;
+}
 
 FileStream pdbfile = PDBFileHelper.CreatePDBFile(pdbfilepath, pefilename);
 
